@@ -1,0 +1,526 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+.app.light {
+	background: -o-linear-gradient(87.54deg, #b3fcff82  -9.31%, rgba(255, 240, 217, 0) 102.37%), #FFFFFF;
+	background: linear-gradient(2.46deg, #b3fcff82  -9.31%, rgba(255, 240, 217, 0) 102.37%), #FFFFFF;
+}
+
+.app.light .MuiPaper-root.ohm-card {
+	background: -o-linear-gradient(top, #FFF3E1 0%, #FFDFAD 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF3E1), to(#FFDFAD));
+	background: linear-gradient(180deg, #e1e6ff 0%, #adf4ff 100%);
+	border: 1px solid #d7c4988f;
+	-webkit-box-shadow: inset -9px -12px 25px -3px rgba(255, 255, 255, 0.24);
+	box-shadow: inset -9px -12px 25px -3px rgba(255, 255, 255, 0.24);
+	border-radius: 10px;
+}
+.app.light #choose-bond-view .ohm-card .bond-hero h4 {
+ color: #222;
+}
+.app.light .stake-wallet-notification .wallet-menu .connect-button {
+	background: #044cac;
+	border-radius: 5px;
+	font-size: 18px;
+	line-height: 21px;
+	color: #161616;
+	height: 41px;
+	width: 172px;
+	border: 1px solid #d7c4988f;
+	min-width: auto;
+	margin-bottom: 12px;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.app.light .stake-wallet-notification .MuiTypography-root.MuiTypography-h6 {
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.app.light .MuiDrawer-paper {
+	background: #fff;
+}
+
+.app.light .stake-top-metrics h5 {
+	font-size: 23px;
+	line-height: 29px;
+	color: #161616;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+}
+
+.app.light .stake-top-metrics h4 {
+	font-weight: 800;
+}
+
+.app.light .MuiTypography-h6 {
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.app.light .branding-header .wallet-link {
+	color: #d7c498;
+}
+
+.app.light .MuiTypography-body2 {
+	font-size: 10px;
+	line-height: 12px;
+}
+
+.app.light .MuiTypography-root .MuiTypography-body2 {
+	font-size: 14px;
+	line-height: 17px;
+}
+
+.app.light .card-header .MuiTypography-h5 {
+	font-size: 24px;
+	line-height: 29px;
+	margin-bottom: 10px;
+}
+
+.app.light .MuiButton-label path {
+	fill: #044cac;
+}
+
+.app.light #ohm-menu-button {
+	border: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.app.light .dapp-topbar .MuiButton-containedSecondary {
+	background-color: transparent;
+}
+.app.light .dapp-topbar .MuiButton-containedSecondary:hover {
+	background-color: transparent !important;
+	color: #222;
+	border: 1px solid rgba(255, 153, 0, .5);
+}
+
+.app.light .dapp-topbar button {
+	border: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: 500;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.app.light .pending-txn-container .MuiButton-label span {
+	color: #222;
+}
+
+.app.light .MuiTypography-body1 {
+	font-size: 18px;
+}
+
+.app.light .pending-txn-container .MuiButton-label {
+	color: #222;
+}
+
+.app.light .MuiToggleButton-label path {
+	fill: #044cac;
+}
+.app.light .MuiToggleButton-root {
+	background: transparent;
+}
+.app.light .MuiToggleButton-root:hover {
+	border: 1px solid rgba(255, 153, 0, .5);
+	background: transparent;
+}
+
+.app.light .stake-wallet-notification .wallet-menu .connect-button:hover {
+	background: transparent;
+}
+
+.MuiPaper-root {
+	color: #161616;
+}
+
+.app.light .MuiButton-fullWidth {
+	background: #817f7d;
+	color: #161616;
+	font-size: 18px;
+	border: 1px solid rgba(255, 153, 0, 1);
+}
+
+.app.light .MuiButton-fullWidth:hover {
+	background: transparent;
+}
+
+.app.light .MuiButton-outlinedPrimary {
+	background: #e7bd7e;
+	color: #161616;
+	border: 1px solid rgba(255, 153, 0,
+			1);
+}
+
+.app.light .MuiButton-outlinedPrimary:hover {
+	background: transparent;
+	border: 1px solid rgba(255, 153, 0,
+			1);
+}
+
+.app.light .MuiTableCell-root {
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.app.light .bond-name a p {
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.app.light .MuiTableRow-root.MuiTableRow-head .MuiTableCell-root {
+	font-size: 18px;
+	color: #161616;
+	font-weight: 300;
+}
+
+.app.light .MuiTypography-colorTextSecondary,
+.app.light .MuiTab-textColorPrimary {
+	color: #161616;
+}
+
+.app.light #bond-view .MuiBackdrop-root .ohm-card {
+	background: #FFF5E6;
+	border: 1px solid #000000;
+}
+
+.app.light .jss2 {
+	background: url(/static/media/light-back.png) no-repeat bottom;
+}
+
+.app.light .social-row svg path {
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.app.light .social-row a:hover svg path {
+	fill: #044cac;
+}
+
+.app.light #bond-view .MuiBackdrop-root {
+	background: rgba(22, 22, 22, 0.8);
+	-webkit-backdrop-filter: blur(25px);
+	        backdrop-filter: blur(25px);
+}
+
+#hades {
+	background: rgba(22, 22, 22, 0.8);
+	-webkit-backdrop-filter: blur(25px);
+	        backdrop-filter: blur(25px);
+}
+
+.app.light .dapp-topbar .MuiButton-containedSecondary:hover {
+	background-color: transparent;
+	color: #222;
+	border: 1px solid rgba(255, 153, 0, .5);
+}
+
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+.app.dark {
+	background: #00202025;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	/* -webkit-box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+	        box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1); */
+	border-radius: 10px;
+}
+
+.app.dark .MuiPaper-root.ohm-card {
+	background: #202025;
+	border: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+	        box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+	border-radius: 10px;
+}
+
+.app.dark .stake-wallet-notification .wallet-menu .connect-button {
+	background: transparent;
+	border-radius: 5px;
+	font-size: 18px;
+	line-height: 21px;
+	color: #fff;
+	height: 41px;
+	width: 172px;
+	border: 1px solid #d7c4988f;
+	min-width: auto;
+	font-weight: 400;
+	margin-bottom: 12px;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+}
+
+.app.dark .stake-wallet-notification .MuiTypography-root.MuiTypography-h6 {
+	font-size: 12px;
+	line-height: 14px;
+	color: #fff;
+}
+
+.app.dark .MuiDrawer-paper {
+	background: #0C0C0C;
+	border-right: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	/* -webkit-box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+	        box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1); */
+}
+
+.app.dark .stake-top-metrics h5 {
+	font-size: 23px;
+	line-height: 29px;
+	color: #fff;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+}
+
+.MuiButton-containedPrimary {
+	background-color: #044cac;
+}
+
+.MuiButton-containedPrimary:hover {
+	border: 1px solid #d7c4988f;
+}
+
+.app.dark .stake-top-metrics h4 {
+	font-weight: 500;
+	color: #d7c498;
+}
+
+.app.dark #treasury-dashboard-view .hero-metrics .ohm-card h5 {
+	color:#d7c498;
+}
+
+.app.dark .MuiTypography-h6 {
+	font-size: 18px;
+	line-height: 40px;
+	font-weight: 400;
+}
+
+.app.dark .MuiLink-root.active {
+	-webkit-text-decoration-color: #d7c498;
+	        text-decoration-color: #d7c498;
+}
+
+.app.dark .branding-header .wallet-link {
+	color: #e8e8e8;
+}
+
+.app.dark .MuiTypography-body2 {
+	font-size: 10px;
+	line-height: 12px;
+	color: #FFFFFF;
+}
+
+.app.dark .MuiTypography-root .MuiTypography-body2 {
+	font-size: 14px;
+	line-height: 17px;
+}
+
+.app.dark .card-header .MuiTypography-h5 {
+	font-size: 24px;
+	line-height: 29px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+.app.dark .MuiButton-label path {
+	fill: #d7c4988f;
+}
+
+.app.dark #ohm-menu-button {
+	border: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 5px;
+	background: #0C0C0C;
+}
+.app.dark #ohm-menu-button:hover path{
+	fill: #fff;
+}
+
+
+.app.dark .dapp-topbar button {
+	border: 1px solid #d7c4988f;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: 500;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	background: #0C0C0C;
+}
+
+.app.dark .pending-txn-container .MuiButton-label span {
+	color: #fff;
+}
+
+.app.dark .MuiTypography-body1 {
+	font-size: 18px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.app.dark .MuiSkeleton-text {
+	background: #fff;
+}
+
+.app.dark .pending-txn-container .MuiButton-label {
+	color: #fff;
+}
+
+.app.dark .MuiToggleButton-label path {
+	fill: #d7c4988f;
+}
+
+
+
+.app.dark .MuiToggleButton-root:hover  .MuiToggleButton-label path {
+ fill: #fff;
+}
+.app.dark .stake-wallet-notification .wallet-menu .connect-button:hover {
+	background: #044cac;
+}
+
+.MuiPaper-root {
+	color: #161616;
+}
+
+.app.dark .MuiButton-fullWidth {
+	background: #000;
+	color: #fff;
+	font-size: 18px;
+	border: 1px solid rgba(255, 153, 0, 1);
+	font-weight: 400;
+}
+
+.app.dark .MuiButton-fullWidth:hover {
+	background: #044cac;
+}
+
+.app.dark #hades .ohm-popover h3 {
+	color: #fff;
+}
+
+.app.dark .MuiButton-outlinedPrimary {
+	/* background: #000; */
+	color: #fff;
+	border: 1px solid #d7c4988f;
+}
+
+.app.dark .MuiButton-outlinedPrimary:hover {
+	background: #044cac;
+	border: 1px solid rgba(255, 153, 0,
+				1);
+}
+
+.app.dark .MuiTableCell-root {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.app.dark .bond-name a p {
+	font-size: 12px;
+	opacity: .5;
+	line-height: 14px;
+}
+
+.app.dark .MuiTableRow-root.MuiTableRow-head .MuiTableCell-root {
+	font-size: 18px;
+	color: #fff;
+	font-weight: 300;
+}
+
+.app.dark .MuiTypography-colorTextSecondary,
+	.app.dark .MuiTab-textColorPrimary, .app.dark .MuiTypography-h5 {
+	color: #fff;
+}
+
+.app.dark #bond-view .bond-price-data-row h3.price {
+	color: #d7c498;
+}
+
+.app.dark #bond-view .MuiBackdrop-root .ohm-card {
+	background: #000;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+	        box-shadow: 7px 11px 63px rgba(255, 153, 0, 0.1);
+}
+
+.app.dark .jss2 {
+	background: url(/static/media/light-back.png) no-repeat bottom;
+}
+
+.app.dark .social-row svg path {
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	fill: #d7c498;
+}
+
+.app.dark .social-row a:hover svg path {
+	fill: #fff;
+}
+
+.app.dark #bond-view .MuiBackdrop-root {
+	background: rgba(22, 22, 22, 0.8);
+	-webkit-backdrop-filter: blur(25px);
+	        backdrop-filter: blur(25px);
+}
+
+.app.dark #hades {
+	background: rgba(22, 22, 22, 0.8);
+	-webkit-backdrop-filter: blur(25px);
+	        backdrop-filter: blur(25px);
+}
+
+.app.dark .dapp-topbar .MuiButton-containedSecondary:hover {
+	background-color: transparent;
+	border: 1px solid rgba(255, 153, 0, .5);
+}
+
+
+.app.dark #choose-bond-view .ohm-card .bond-hero h4 {
+	color: #d7c498;
+	font-weight: 400 !important;
+}

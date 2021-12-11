@@ -1,0 +1,196 @@
+.sidebar {
+  min-width: 280px;
+  z-index: 2;
+  border-radius: 0 !important;
+}
+
+.sidebar > .drawer {
+  width: 300px;
+}
+
+.MuiDrawer-paper .MuiPaper-root {
+  border-radius: 0 !important;
+}
+
+.dapp-sidebar {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dapp-sidebar-inner {
+  height: fit-content;
+  overflow: auto;
+}
+
+.bg-color-sidebar-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.branding-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+  margin: 30px 0 10px 0;
+  .branding-header-icon {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+  }
+  .wallet-link {
+    margin: 10px;
+  }
+}
+
+.f-32{
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.dapp-menu-top {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-bottom: 33px;
+  min-height: max-content;
+  .dapp-nav {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+.dapp-menu-bottom {
+  height: 40vh;
+  min-height: 30vh;
+}
+
+.dapp-menu-links {
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+}
+.dapp-nav a {
+  margin-top: 0.7rem;
+  margin-left: 33px;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0px 15px;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    vertical-align: -4px;
+  }
+}
+
+.dapp-menu-external-links {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 18px;
+  h6 {
+    display: flex;
+    align-self: center;
+  }
+  span.MuiLink-root,
+  a {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-left: 15px;
+  }
+  span.MuiLink-root svg,
+  a svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+  span.MuiLink-root:hover {
+    color: inherit;
+    cursor: inherit;
+  }
+}
+
+.bond-discounts {
+  text-align: left;
+  color: #999999;
+  padding-left: 33px;
+  margin-top: 8px;
+  > p {
+    margin-left: 33px;
+  }
+  .bond {
+    display: block;
+    padding: unset;
+    margin-bottom: 0 0 1px 0;
+    text-decoration: none !important;
+    .bond-pair-roi {
+      float: right;
+      margin-left: 33px;
+    }
+  }
+}
+
+.social-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  padding: 1.3rem;
+  a {
+    &:hover {
+      transform: scale(1.1);
+    }
+    img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.mobile .show .dapp-sidebar {
+  .dapp-menu-links {
+    flex-flow: row !important;
+    justify-content: center !important;
+  }
+  .dapp-menu-external-links {
+    padding-top: 3em;
+    line-height: 200% !important;
+    justify-content: center;
+  }
+  .dapp-nav,
+  .dapp-menu-external-links {
+    flex-flow: column !important;
+    justify-content: flex-start;
+    margin: auto;
+    a {
+      padding: 0;
+      svg {
+        align-self: center;
+      }
+    }
+  }
+  .dapp-menu-external-links a {
+    justify-content: left;
+  }
+  .dapp-nav {
+    .dapp-menu-data.discounts {
+      margin-top: 2.5em;
+      .bond-discounts {
+        display: none;
+      }
+    }
+  }
+}
