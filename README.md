@@ -1,2 +1,2 @@
-# BigHead
- Frontend of BigHead DAO
+# Valhalla DAO
+ Frontend of Valhalla DAO

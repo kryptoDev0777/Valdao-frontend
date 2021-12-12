@@ -190,7 +190,7 @@ function Presale() {
                         <>
                           First time deposit <b>MIM</b>?
                           <br />
-                          Please approve BigHead Dao to use your <b>MIM</b> for presale.
+                          Please approve Valhalla Dao to use your <b>MIM</b> for presale.
                         </>
                       </Typography>
                     </Box>

@@ -47,17 +47,11 @@ function NavContent() {
         <div className="dapp-menu-top">
           <Box className="branding-header">
             <Link href="/" target="_blank">
-              {/* <SvgIcon
-                color="primary"
-                component={BigHeadIcon}
-                viewBox="0 0 400 400"
-                
-              /> */}
               <img src = "/images/logo.png" style={{ "padding":"30px"}}></img>
             </Link>
             {address && (
               <div className="wallet-link">
-                <Link href={`https://bscscan.com/address/${address}`} target="_blank">
+                <Link href={`https://snowtrace.io/address/${address}`} target="_blank">
                   {shorten(address)}
                 </Link>
               </div>

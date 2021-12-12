@@ -85,7 +85,7 @@ function Claim() {
                       <>
                         First time use <b>aVALDAO</b>?
                         <br />
-                        Please approve BigHead Dao to use your <b>aVALDAO</b> for claim VALDAO.
+                        Please approve Valhalla Dao to use your <b>aVALDAO</b> for claim VALDAO.
                       </>
                     </Typography>
                   </Box>

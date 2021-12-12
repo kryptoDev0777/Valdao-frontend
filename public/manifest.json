@@ -1,8 +1,8 @@
 {
-  "short_name": "BigHead DAO",
+  "short_name": "Valhalla DAO",
   "start_url": ".",
   "homepage": "./",
-  "name": "BigHead DAO",
+  "name": "Valhalla DAO",
   "launch_path": "/public/index.html",
   "icons": [
     {
