@@ -244,7 +244,7 @@ function Presale() {
                         className="stake-button"
                         variant="contained"
                         color="primary"
-                        disabled={isPendingTxn(pendingTransactions, "deposit") || tokenPrice === 0 || mimBalance < minCap}
+                        disabled={isPendingTxn(pendingTransactions, "deposit")}
                         onClick={() => {
                           onChangeDeposit("presale");
                         }}
