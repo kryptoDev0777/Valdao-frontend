@@ -101,13 +101,15 @@ function Presale() {
   );
   const isAllowanceDataLoading = presaleAllowance == null;
 
+
+
   return (
     <div id="dashboard-view">
       <Paper className={`ohm-card`}>
         <Grid container direction="column" spacing={2}>
           <Grid item>
             <div className="card-header">
-              <Typography variant="h5">Presale</Typography>
+              <Typography variant="h2">Presale</Typography>
               {statusPresale}
             </div>
           </Grid>
