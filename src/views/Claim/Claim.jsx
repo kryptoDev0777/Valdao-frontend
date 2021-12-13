@@ -71,7 +71,7 @@ function Claim() {
         <Grid container direction="column" spacing={2}>
           <Grid item>
             <div className="card-header">
-              <Typography variant="h5">Claim</Typography>
+              <Typography variant="h2">Claim</Typography>
             </div>
           </Grid>
         </Grid>
