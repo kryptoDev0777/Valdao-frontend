@@ -205,7 +205,7 @@ function Stake() {
                     <Link
                       className="migrate-sohm-button"
                       style={{ textDecoration: "none" }}
-                      href="https://docs.hectordao.com/using-the-website/migrate"
+                      href="FIXME"
                       aria-label="migrate-sohm"
                       target="_blank"
                     >
@@ -298,13 +298,13 @@ function Stake() {
                                   <>
                                     First time staking <b>VALDAO</b>?
                                     <br />
-                                    Please approve BigHead DAO to use your <b>VALDAO</b> for staking.
+                                    Please approve Valhalla DAO to use your <b>VALDAO</b> for staking.
                                   </>
                                 ) : (
                                   <>
                                     First time unstaking <b>sVALDAO</b>?
                                     <br />
-                                    Please approve BigHead DAO to use your <b>sVALDAO</b> for unstaking.
+                                    Please approve Valhalla DAO to use your <b>sVALDAO</b> for unstaking.
                                   </>
                                 )}
                               </Typography>

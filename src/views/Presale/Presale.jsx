@@ -192,7 +192,7 @@ function Presale() {
                         <>
                           First time deposit <b>MIM</b>?
                           <br />
-                          Please approve BigHead Dao to use your <b>MIM</b> for presale.
+                          Please approve Valhalla Dao to use your <b>MIM</b> for presale.
                         </>
                       </Typography>
                     </Box>
@@ -246,7 +246,7 @@ function Presale() {
                         className="stake-button"
                         variant="contained"
                         color="primary"
-                        disabled={isPendingTxn(pendingTransactions, "deposit") || tokenPrice === 0 || mimBalance < minCap}
+                        disabled={isPendingTxn(pendingTransactions, "deposit")}
                         onClick={() => {
                           onChangeDeposit("presale");
                         }}

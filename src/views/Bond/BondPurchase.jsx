@@ -154,7 +154,7 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
               <div className="help-text">
                 <em>
                   <Typography variant="body1" align="center" color="textSecondary">
-                    First time bonding <b>{bond.displayName}</b>? <br /> Please approve BigHead DAO to use your{" "}
+                    First time bonding <b>{bond.displayName}</b>? <br /> Please approve Valhalla DAO to use your{" "}
                     <b>{bond.displayName}</b> for bonding.
                   </Typography>
                 </em>

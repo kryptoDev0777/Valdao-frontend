@@ -93,7 +93,7 @@ export const PoolInfo = props => {
           <div className="data-row">
             <Typography>Pool owner</Typography>
             <Box display="flex" alignItems="center">
-              <Typography>BigHead DAO</Typography>
+              <Typography>Vahalla DAO</Typography>
             </Box>
           </div>
           <Divider color="secondary" />
