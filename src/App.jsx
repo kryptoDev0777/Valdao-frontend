@@ -232,10 +232,6 @@ function App() {
     }
   }, [walletChecked]);
 
-
-  // const MainSection = styled.div`
-  //   background-image:url('images/background.png');
-  // `
   return (
     <ThemeProvider theme={themeMode}>
       

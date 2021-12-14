@@ -83,9 +83,9 @@ export const loadAccountDetails = createAsyncThunk(
     const isEnded = await presaleContract.ended();
     const minCap = await presaleContract.minCap();
     const cap = await presaleContract.cap();
-    let presaleStatus = "Presale was not started yet.";
+    let presaleStatus = "Presale has not yet started.";
     if(isStarted){
-      presaleStatus = "Presales was started";
+      presaleStatus = "Presales is Active!";
     } 
     if(isEnded)
       presaleStatus = "Presales was ended";

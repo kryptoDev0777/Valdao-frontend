@@ -71,7 +71,7 @@ function Claim() {
         <Grid container direction="column" spacing={2}>
           <Grid item>
             <div className="card-header">
-              <Typography variant="h5">Claim</Typography>
+              <Typography variant="h2">Claim</Typography>
             </div>
           </Grid>
         </Grid>
@@ -85,7 +85,7 @@ function Claim() {
                       <>
                         First time use <b>aVALDAO</b>?
                         <br />
-                        Please approve BigHead Dao to use your <b>aVALDAO</b> for claim VALDAO.
+                        Please approve Valhalla Dao to use your <b>aVALDAO</b> for claim VALDAO.
                       </>
                     </Typography>
                   </Box>
