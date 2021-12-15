@@ -29,12 +29,12 @@ function Claim() {
   const pendingTransactions = useSelector(state => {
     return state.pendingTransactions;
   });
-  const pbhdBalance = useSelector(state => {
-    return state.account.balances && state.account.balances.pbhd;
+  const pvaldaoBalance = useSelector(state => {
+    return state.account.balances && state.account.balances.pvaldao;
   });
-  console.log("debug --> Claim / pbhdBalance : ", pbhdBalance);
+  console.log("debug --> Claim / pvaldaoBalance : ", pvaldaoBalance);
   const setMax = () => {
-    setQuantity(pbhdBalance);
+    setQuantity(pvaldaoBalance);
   };
   const onSeekApproval = async token => {
     await dispatch(changeApproval({ address, token, provider, networkID: chainID }));
@@ -52,7 +52,7 @@ function Claim() {
     // 1st catch if quantity > balance
     let gweiValue = ethers.utils.parseUnits(quantity, "gwei");
 
-    if (action === "claim" && gweiValue.gt(ethers.utils.parseUnits(pbhdBalance, "gwei"))) {
+    if (action === "claim" && gweiValue.gt(ethers.utils.parseUnits(pvaldaoBalance, "gwei"))) {
       return dispatch(error("You cannot claim more than your pBHD balance."));
     }
     await dispatch(changeClaim({ address, action, value: quantity.toString(), provider, networkID: chainID }));

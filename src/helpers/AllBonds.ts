@@ -17,29 +17,31 @@ import { getBondCalculator } from "src/helpers/BondCalculator";
 
 // TODO(zx): Further modularize by splitting up reserveAssets into vendor token definitions
 //   and include that in the definition of a bond
-export const dai = new StableBond({
-  name: "dai",
-  displayName: "DAI",
-  bondToken: "DAI",
-  bondIconSvg: DaiImg,
-  bondContractABI: DaiBondContract,
-  networkAddrs: {
-    [NetworkID.Mainnet]: {
-      bondAddress: "0x39D260B96089F2a34DBc5186B47D4278392f55Ce",
-      reserveAddress: "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
-    },
-    [NetworkID.Testnet]: {
-      bondAddress: "0x7b10a32d15FE1196a7f1590a855AC4ACcB6fe772",
-      reserveAddress: "0x8a9424745056Eb399FD19a0EC26A14316684e274",
-    },
-  },
-});
+
+console.log('debug->allbonds', NetworkID.Mainnet);
+// export const dai = new StableBond({
+//   name: "dai",
+//   displayName: "DAI",
+//   bondToken: "DAI",
+//   bondIconSvg: DaiImg,
+//   bondContractABI: DaiBondContract,
+//   networkAddrs: {
+//     [NetworkID.Mainnet]: {
+//       bondAddress: "0x39D260B96089F2a34DBc5186B47D4278392f55Ce",
+//       reserveAddress: "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
+//     },
+//     [NetworkID.Testnet]: {
+//       bondAddress: "0x7b10a32d15FE1196a7f1590a855AC4ACcB6fe772",
+//       reserveAddress: "0x8a9424745056Eb399FD19a0EC26A14316684e274",
+//     },
+//   },
+// });
 
 export const mim = new StableBond({
   name: "mim",
   displayName: "MIM",
   bondToken: "MIM",
-  bondIconSvg: MimImg,
+  bondIconSvg: "/images/tokens/mim.png",
   bondContractABI: DaiBondContract,
   networkAddrs: {
     [NetworkID.Mainnet]: {
@@ -53,12 +55,12 @@ export const mim = new StableBond({
   },
 });
 
-export const eth = new CustomBond({
-  name: "ftm",
-  displayName: "wFTM",
+export const avax = new CustomBond({
+  name: "avax",
+  displayName: "wavax",
   lpUrl: "",
   bondType: BondType.StableAsset,
-  bondToken: "WFTM",
+  bondToken: "WAVAX",
   bondIconSvg: wETHImg,
   bondContractABI: EthBondContract,
   reserveContract: ierc20Abi, // The Standard ierc20Abi since they're normal tokens
@@ -83,32 +85,32 @@ export const eth = new CustomBond({
   },
 });
 
-export const bhd_dai = new LPBond({
-  name: "bhd_dai_lp",
-  displayName: "BHD-DAI LP",
-  bondToken: "DAI",
-  bondIconSvg: BhdDaiImg,
-  bondContractABI: BondBhdDaiContract,
-  reserveContract: ReserveBhdDaiContract,
-  networkAddrs: {
-    [NetworkID.Mainnet]: {
-      bondAddress: "0xA07cb8afD1408FaB6a99f75Cad8A2263dDFB99bd",
-      reserveAddress: "0x1ec483fBB9eE42aED753F633DF23A171AAD4De7b",
-    },
-    [NetworkID.Testnet]: {
-      bondAddress: "0x37346f0bdCd6B510aC3673007791C94f48CA0af4",
-      reserveAddress: "0x6aCDe82dFbF8B25bf9fb9E7b0CCaF648c3f60b63",
-    },
-  },
-  lpUrl:
-    "https://pancakeswap.finance/add/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3/0x46F64ddf725090ce7442Ef7e7c7EB41AaED90424",
-});
+// export const bhd_dai = new LPBond({
+//   name: "bhd_dai_lp",
+//   displayName: "BHD-DAI LP",
+//   bondToken: "DAI",
+//   bondIconSvg: BhdDaiImg,
+//   bondContractABI: BondBhdDaiContract,
+//   reserveContract: ReserveBhdDaiContract,
+//   networkAddrs: {
+//     [NetworkID.Mainnet]: {
+//       bondAddress: "0xA07cb8afD1408FaB6a99f75Cad8A2263dDFB99bd",
+//       reserveAddress: "0x1ec483fBB9eE42aED753F633DF23A171AAD4De7b",
+//     },
+//     [NetworkID.Testnet]: {
+//       bondAddress: "0x37346f0bdCd6B510aC3673007791C94f48CA0af4",
+//       reserveAddress: "0x6aCDe82dFbF8B25bf9fb9E7b0CCaF648c3f60b63",
+//     },
+//   },
+//   lpUrl:
+//     "https://pancakeswap.finance/add/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3/0x46F64ddf725090ce7442Ef7e7c7EB41AaED90424",
+// });
 
 export const MIM_Valdao = new LPBond({
   name: "mim_valdao_lp",
   displayName: "MIM-Valdao LP",
   bondToken: "DAI",
-  bondIconSvg: BhdDaiImg,
+  bondIconSvg: "/images/tokens/mim-valdao.png",
   bondContractABI: BondBhdDaiContract,
   reserveContract: ReserveBhdDaiContract,
   networkAddrs: {

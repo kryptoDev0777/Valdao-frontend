@@ -7,7 +7,7 @@ import { addresses } from "src/constants";
 import React, { ReactNode } from "react";
 
 export enum NetworkID {
-  Mainnet = 56,
+  Mainnet = 43114,
   Testnet = 97,
 }
 
@@ -69,6 +69,7 @@ export abstract class Bond {
   }
   getContractForBond(networkID: NetworkID, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const bondAddress = this.getAddressForBond(networkID);
+    
     return new ethers.Contract(bondAddress, this.bondContractABI, provider);
   }
 

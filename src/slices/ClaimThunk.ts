@@ -1,7 +1,7 @@
 import { ethers, BigNumber } from "ethers";
 import { addresses } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
-import { abi as BigHeadStaking } from "../abi/BigHeadStaking.json";
+import { abi as ValdaoStaking } from "../abi/ValdaoStaking.json";
 import { abi as StakingHelper } from "../abi/StakingHelper.json";
 import { abi as Presale } from "../abi/Presale.json";
 import { abi as pBHD } from "../abi/pBHD.json";

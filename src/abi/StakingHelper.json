@@ -9,7 +9,7 @@
         },
         {
           "internalType": "address",
-          "name": "_BHD",
+          "name": "_Valdao",
           "type": "address"
         }
       ],
@@ -18,7 +18,7 @@
     },
     {
       "inputs": [],
-      "name": "BHD",
+      "name": "Valdao",
       "outputs": [
         {
           "internalType": "address",
@@ -35,6 +35,11 @@
           "internalType": "uint256",
           "name": "_amount",
           "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
         }
       ],
       "name": "stake",

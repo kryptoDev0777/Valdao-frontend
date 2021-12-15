@@ -246,7 +246,7 @@ function Presale() {
                         className="stake-button"
                         variant="contained"
                         color="primary"
-                        disabled={isPendingTxn(pendingTransactions, "deposit")}
+                        disabled={true}
                         onClick={() => {
                           onChangeDeposit("presale");
                         }}

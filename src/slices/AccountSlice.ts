@@ -14,10 +14,10 @@ import { IBaseAddressAsyncThunk, ICalcUserBondDetailsAsyncThunk } from "./interf
 export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk) => {
-    const bhdContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, provider);
-    const bhdBalance = await bhdContract.balanceOf(address);
-    const sbhdContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, sBHD, provider);
-    const sbhdBalance = await sbhdContract.balanceOf(address);
+    const valdaoContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, provider);
+    const valdaoBalance = await valdaoContract.balanceOf(address);
+    const svaldaoContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, sBHD, provider);
+    const svaldaoBalance = await svaldaoContract.balanceOf(address);
     let poolBalance = 0;
     const poolTokenContract = new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS as string, ierc20Abi, provider);
     poolBalance = await poolTokenContract.balanceOf(address);
@@ -25,8 +25,8 @@ export const getBalances = createAsyncThunk(
     console.log('debug->balances')
     return {
       balances: {
-        bhd: ethers.utils.formatUnits(bhdBalance, "gwei"),
-        sbhd: ethers.utils.formatUnits(sbhdBalance, "gwei"),
+        valdao: ethers.utils.formatUnits(valdaoBalance, "gwei"),
+        svaldao: ethers.utils.formatUnits(svaldaoBalance, "gwei"),
         pool: ethers.utils.formatUnits(poolBalance, "gwei"),
       },
     };
@@ -36,9 +36,9 @@ export const getBalances = createAsyncThunk(
 export const loadAccountDetails = createAsyncThunk(
   "account/loadAccountDetails",
   async ({ networkID, provider, address }: IBaseAddressAsyncThunk) => {
-    let bhdBalance = 0;
-    let sbhdBalance = 0;
-    let pbhdBalance = 0;
+    let valdaoBalance = 0;
+    let svaldaoBalance = 0;
+    let pvaldaoBalance = 0;
     let mimBalance = 0;
     let presaleAllowance = 0;
     let claimAllowance = 0;
@@ -47,33 +47,30 @@ export const loadAccountDetails = createAsyncThunk(
     let daiBondAllowance = 0;
     let poolAllowance = 0;
     
-    console.log('debug', 'daiBalance')
     const daiContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     const daiBalance = await daiContract.balanceOf(address);
     
     const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     mimBalance = await mimContract.balanceOf(address);
 
-    console.log('debug', ethers.utils.formatEther(mimBalance))
-    const pbhdContract = new ethers.Contract(addresses[networkID].AVALDAO_ADDRESS as string, pBHD, provider);
-    pbhdBalance = await pbhdContract.balanceOf(address);
+    const pvaldaoContract = new ethers.Contract(addresses[networkID].AVALDAO_ADDRESS as string, pBHD, provider);
+    pvaldaoBalance = await pvaldaoContract.balanceOf(address);
 
-    const bhdContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, provider);
-    bhdBalance = await bhdContract.balanceOf(address);
-    console.log('debug', pbhdBalance.toString())
-    stakeAllowance = await bhdContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
+    const valdaoContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, provider);
+    valdaoBalance = await valdaoContract.balanceOf(address);
+    stakeAllowance = await valdaoContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
 
-    const sbhdContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, sBHD, provider);
-    sbhdBalance = await sbhdContract.balanceOf(address);
-    unstakeAllowance = await sbhdContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    poolAllowance = await sbhdContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
+    const svaldaoContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, sBHD, provider);
+    svaldaoBalance = await svaldaoContract.balanceOf(address);
+    unstakeAllowance = await svaldaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    poolAllowance = await svaldaoContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
 
     if (addresses[networkID].MIM_ADDRESS) {
       presaleAllowance = await mimContract.allowance(address, addresses[networkID].PRESALE_ADDRESS);
     }
 
     if (addresses[networkID].AVALDAO_ADDRESS) {
-      claimAllowance = await pbhdContract.allowance(address, addresses[networkID].PRESALE_ADDRESS);
+      claimAllowance = await pvaldaoContract.allowance(address, addresses[networkID].PRESALE_ADDRESS);
     }
     
     const presaleContract = new ethers.Contract(addresses[networkID].PRESALE_ADDRESS as string, presaleAbi, provider);
@@ -91,15 +88,14 @@ export const loadAccountDetails = createAsyncThunk(
       presaleStatus = "Presales was ended";
     
     
-    console.log('debug presaleStatus', minCap, cap)
 
     return {
       balances: {
         dai: ethers.utils.formatEther(daiBalance),
         busd: ethers.utils.formatEther(mimBalance),
-        bhd: ethers.utils.formatUnits(bhdBalance, "gwei"),
-        sbhd: ethers.utils.formatUnits(sbhdBalance, "gwei"),
-        pbhd: ethers.utils.formatUnits(pbhdBalance, "gwei"),
+        valdao: ethers.utils.formatUnits(valdaoBalance, "gwei"),
+        svaldao: ethers.utils.formatUnits(svaldaoBalance, "gwei"),
+        pvaldao: ethers.utils.formatUnits(pvaldaoBalance, "gwei"),
       },
 
       presale: {
@@ -114,14 +110,14 @@ export const loadAccountDetails = createAsyncThunk(
         claimAllowance: +claimAllowance,
       },
       staking: {
-        bhdStake: +stakeAllowance,
-        bhdUnstake: +unstakeAllowance,
+        valdaoStake: +stakeAllowance,
+        valdaoUnstake: +unstakeAllowance,
       },
       bonding: {
         daiAllowance: daiBondAllowance,
       },
       pooling: {
-        sbhdPool: +poolAllowance,
+        svaldaoPool: +poolAllowance,
       },
     };
   },
@@ -130,7 +126,7 @@ export const loadAccountDetails = createAsyncThunk(
 export interface IUserBondDetails {
   allowance: number;
   interestDue: number;
-  bondMaturationBlock: number;
+  bondMaturationTime: number;
   pendingPayout: string; //Payout formatted in gwei.
 }
 export const calculateUserBondDetails = createAsyncThunk(
@@ -145,7 +141,7 @@ export const calculateUserBondDetails = createAsyncThunk(
         allowance: 0,
         balance: "0",
         interestDue: 0,
-        bondMaturationBlock: 0,
+        bondMaturationTime: 0,
         pendingPayout: "",
       };
     }
@@ -155,11 +151,11 @@ export const calculateUserBondDetails = createAsyncThunk(
     const bondContract = bond.getContractForBond(networkID, provider);
     const reserveContract = bond.getContractForReserve(networkID, provider);
 
-    let interestDue, pendingPayout, bondMaturationBlock;
+    let interestDue, pendingPayout, bondMaturationTime;
 
     const bondDetails = await bondContract.bondInfo(address);
     interestDue = bondDetails.payout / Math.pow(10, 9);
-    bondMaturationBlock = +bondDetails.vesting + +bondDetails.lastBlock;
+    bondMaturationTime = +bondDetails.vesting + +bondDetails.lastTime;
     pendingPayout = await bondContract.pendingPayoutFor(address);
 
     let allowance,
@@ -182,7 +178,7 @@ export const calculateUserBondDetails = createAsyncThunk(
       allowance: Number(allowance),
       balance: balanceVal.toString(),
       interestDue,
-      bondMaturationBlock,
+      bondMaturationTime,
       pendingPayout: ethers.utils.formatUnits(pendingPayout, "gwei"),
     };
   },

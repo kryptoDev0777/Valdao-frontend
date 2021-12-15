@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { addresses } from "../constants";
 import { IBaseAsyncThunk } from "../slices/interfaces";
-import { eth, bhd_dai } from "./AllBonds";
+import { avax, MIM_Valdao } from "./AllBonds";
 
 const balanceOf = {
   inputs: [{ internalType: "address", name: "", type: "address" }],
@@ -53,10 +53,10 @@ export async function calcRunway(circulatingSupply: number, { networkID, provide
   const reserves = [
     addresses[networkID].MIM_ADDRESS,
     // addresses[networkID].USDC_ADDRESS,
-    // eth.networkAddrs[networkID].reserveAddress,
+    // avax.networkAddrs[networkID].reserveAddress,
   ];
-  const lps = [bhd_dai.networkAddrs[networkID].reserveAddress];
-  const wftmBondContract = new ethers.Contract(eth.networkAddrs[networkID].bondAddress, [assetPrice], provider);
+  const lps = [MIM_Valdao.networkAddrs[networkID].reserveAddress];
+  const wavaxBondContract = new ethers.Contract(avax.networkAddrs[networkID].bondAddress, [assetPrice], provider);
   const bondCalContract = new ethers.Contract(
     addresses[networkID].BONDINGCALC_ADDRESS as string,
     [getTotalValue],
@@ -69,7 +69,7 @@ export async function calcRunway(circulatingSupply: number, { networkID, provide
     const balance = await reserveContract.balanceOf(addresses[networkID].TREASURY_ADDRESS);
     const decimal = await reserveContract.decimals();
     const price =
-      reserve == eth.networkAddrs[networkID].bondAddress ? (await wftmBondContract.assetPrice()) / 10 ** 8 : 1;
+      reserve == avax.networkAddrs[networkID].bondAddress ? (await wavaxBondContract.assetPrice()) / 10 ** 8 : 1;
     const assetValue = (balance / 10 ** decimal) * price;
 
     totalValue += assetValue;

@@ -23,8 +23,8 @@ export function ClaimBondTableData({ userBond }) {
 
   const isAppLoading = useSelector(state => state.app.loading ?? true);
 
-  const currentBlock = useSelector(state => {
-    return state.app.currentBlock;
+  const currentTime = useSelector(state => {
+    return state.app.currentTime;
   });
 
   const pendingTransactions = useSelector(state => {
@@ -32,7 +32,7 @@ export function ClaimBondTableData({ userBond }) {
   });
 
   const vestingPeriod = () => {
-    return prettyVestingPeriod(currentBlock, bond.bondMaturationBlock);
+    return prettyVestingPeriod(currentTime, bond.bondMaturationTime);
   };
 
   async function onRedeem({ autostake }) {
@@ -81,8 +81,8 @@ export function ClaimBondCardData({ userBond }) {
   const bond = userBond[1];
   const bondName = bond.bond;
 
-  const currentBlock = useSelector(state => {
-    return state.app.currentBlock;
+  const currentTime = useSelector(state => {
+    return state.app.currentTime;
   });
 
   const pendingTransactions = useSelector(state => {
@@ -90,7 +90,7 @@ export function ClaimBondCardData({ userBond }) {
   });
 
   const vestingPeriod = () => {
-    return prettyVestingPeriod(currentBlock, bond.bondMaturationBlock);
+    return prettyVestingPeriod(currentTime, bond.bondMaturationTime);
   };
 
   async function onRedeem({ autostake }) {

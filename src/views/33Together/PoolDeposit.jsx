@@ -21,7 +21,7 @@ import { changeApproval, poolDeposit } from "../../slices/PoolThunk";
 import { Skeleton } from "@material-ui/lab";
 import { error } from "../../slices/MessagesSlice";
 
-const sbhdImg = getTokenImage("sbhd");
+const svaldaoImg = getTokenImage("svaldao");
 
 export const PoolDeposit = props => {
   const dispatch = useDispatch();
@@ -32,8 +32,8 @@ export const PoolDeposit = props => {
   const isAppLoading = useSelector(state => state.app.loading);
   const isMobileScreen = useMediaQuery("(max-width: 513px)");
 
-  const sbhdBalance = useSelector(state => {
-    return state.account.balances && state.account.balances.sbhd;
+  const svaldaoBalance = useSelector(state => {
+    return state.account.balances && state.account.balances.svaldao;
   });
 
   const poolBalance = useSelector(state => {
@@ -41,7 +41,7 @@ export const PoolDeposit = props => {
   });
 
   const poolAllowance = useSelector(state => {
-    return state.account.pooling && state.account.pooling.sbhdPool;
+    return state.account.pooling && state.account.pooling.svaldaoPool;
   });
 
   const pendingTransactions = useSelector(state => {
@@ -71,7 +71,7 @@ export const PoolDeposit = props => {
   }, [poolAllowance]);
 
   const setMax = () => {
-    const value = parseFloat(sbhdBalance);
+    const value = parseFloat(svaldaoBalance);
     setQuantity(value);
     let userBalanceAfterDeposit = poolBalance + value;
 
@@ -127,7 +127,7 @@ export const PoolDeposit = props => {
                 onChange={e => updateDepositQuantity(e)}
                 startAdornment={
                   <InputAdornment position="start">
-                    <div className="logo-holder">{sbhdImg}</div>
+                    <div className="logo-holder">{svaldaoImg}</div>
                   </InputAdornment>
                 }
                 labelWidth={0}
@@ -141,7 +141,7 @@ export const PoolDeposit = props => {
               />
             </FormControl>
 
-            {address && hasAllowance("sbhd") ? (
+            {address && hasAllowance("svaldao") ? (
               <Button
                 className="pool-deposit-button"
                 variant="contained"
@@ -158,7 +158,7 @@ export const PoolDeposit = props => {
                 variant="contained"
                 color="primary"
                 disabled={isPendingTxn(pendingTransactions, "approve_pool_together")}
-                onClick={() => onSeekApproval("sbhd")}
+                onClick={() => onSeekApproval("svaldao")}
               >
                 {txnButtonText(pendingTransactions, "approve_pool_together", "Approve")}
               </Button>
@@ -181,7 +181,7 @@ export const PoolDeposit = props => {
                 {isAppLoading ? (
                   <Skeleton width="80px" />
                 ) : (
-                  <>{new Intl.NumberFormat("en-US").format(sbhdBalance)} sBHD</>
+                  <>{new Intl.NumberFormat("en-US").format(svaldaoBalance)} sBHD</>
                 )}
               </Typography>
             </div>

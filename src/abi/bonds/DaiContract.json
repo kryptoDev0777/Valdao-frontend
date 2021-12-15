@@ -4,7 +4,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_BHD",
+          "name": "_Valdao",
           "type": "address"
         },
         {
@@ -183,7 +183,7 @@
     },
     {
       "inputs": [],
-      "name": "BHD",
+      "name": "DAO",
       "outputs": [
         {
           "internalType": "address",
@@ -196,7 +196,7 @@
     },
     {
       "inputs": [],
-      "name": "DAO",
+      "name": "Valdao",
       "outputs": [
         {
           "internalType": "address",
@@ -227,14 +227,14 @@
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint32",
           "name": "buffer",
-          "type": "uint256"
+          "type": "uint32"
         },
         {
-          "internalType": "uint256",
-          "name": "lastBlock",
-          "type": "uint256"
+          "internalType": "uint32",
+          "name": "lastTime",
+          "type": "uint32"
         }
       ],
       "stateMutability": "view",
@@ -270,18 +270,18 @@
         },
         {
           "internalType": "uint256",
-          "name": "vesting",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "lastBlock",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
           "name": "pricePaid",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "lastTime",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "vesting",
+          "type": "uint32"
         }
       ],
       "stateMutability": "view",
@@ -390,11 +390,6 @@
         },
         {
           "internalType": "uint256",
-          "name": "_vestingTerm",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
           "name": "_minimumPrice",
           "type": "uint256"
         },
@@ -417,6 +412,11 @@
           "internalType": "uint256",
           "name": "_initialDebt",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_vestingTerm",
+          "type": "uint32"
         }
       ],
       "name": "initializeBondTerms",
@@ -442,9 +442,9 @@
       "name": "lastDecay",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "uint32",
           "name": "",
-          "type": "uint256"
+          "type": "uint32"
         }
       ],
       "stateMutability": "view",
@@ -634,9 +634,9 @@
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint32",
           "name": "_buffer",
-          "type": "uint256"
+          "type": "uint32"
         }
       ],
       "name": "setAdjustment",
@@ -647,7 +647,7 @@
     {
       "inputs": [
         {
-          "internalType": "enum BigHeadBondDepository.PARAMETER",
+          "internalType": "enum ValdaoBondDepository.PARAMETER",
           "name": "_parameter",
           "type": "uint8"
         },
@@ -730,11 +730,6 @@
         },
         {
           "internalType": "uint256",
-          "name": "vestingTerm",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
           "name": "minimumPrice",
           "type": "uint256"
         },
@@ -752,6 +747,11 @@
           "internalType": "uint256",
           "name": "maxDebt",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "vestingTerm",
+          "type": "uint32"
         }
       ],
       "stateMutability": "view",

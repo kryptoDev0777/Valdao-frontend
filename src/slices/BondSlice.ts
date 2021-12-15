@@ -79,13 +79,13 @@ export const calcBondDetails = createAsyncThunk(
       value = "0";
     }
     const amountInWei = ethers.utils.parseEther(value);
-
+    
     // const vestingTerm = VESTING_TERM; // hardcoded for now
     let bondPrice = 0,
       bondDiscount = 0,
       valuation = 0,
       bondQuote = 0;
-    const bondContract = bond.getContractForBond(networkID, provider);
+      const bondContract = bond.getContractForBond(networkID, provider);
     let bondCalcContract;
     bondCalcContract = getBondCalculator(networkID, provider);
     const terms = await bondContract.terms();
@@ -98,6 +98,7 @@ export const calcBondDetails = createAsyncThunk(
       isSoldOut = true;
     }
 
+ 
     let marketPrice: number = 0;
     try {
       const originalPromiseResult = await dispatch(
@@ -110,6 +111,8 @@ export const calcBondDetails = createAsyncThunk(
     }
     try {
       bondPrice = await bondContract.bondPriceInUSD();
+      
+
       // bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (bondPrice * Math.pow(10, 9));
       bondDiscount = (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice; // 1 - bondPrice / (bondPrice * Math.pow(10, 9));
     } catch (e) {
@@ -160,6 +163,8 @@ export const calcBondDetails = createAsyncThunk(
     if (isSoldOut) {
       bondDiscount = -0.1;
     }
+
+    console.log('debug->bondPRice', bondPrice, purchased)
     return {
       bond: bond.name,
       bondDiscount,

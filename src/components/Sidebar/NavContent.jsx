@@ -59,7 +59,7 @@ function NavContent() {
           </Box>
 
           <div className="dapp-menu-links">
-            <div className="dapp-nav " id="navbarNav">
+            <div className="dapp-nav " id="navbarNav" style={{"width":"-webkit-fill-available", "margin-right":"20px"}}>
               <Link
                 component={NavLink}
                 id="dash-nav"
@@ -99,14 +99,10 @@ function NavContent() {
                   return checkPage(match, location, "claim");
                 }}  
                 className={`button-dapp-menu bg-color-sidebar-btn ${isActive ? "active" : ""}`}
-                style={{ pointerEvents: "none" }}
               >
                 <Typography variant="h6">
                   <SvgIcon color="primary" component={DashboardIcon} />
                   Dashboard
-                  <Typography variant="caption" style={{ marginLeft: "8px" }}>
-                    (Coming Soon)
-                  </Typography>
                 </Typography>
               </Link>
 
@@ -118,31 +114,12 @@ function NavContent() {
                   return checkPage(match, location, "stake");
                 }}
                 className={`button-dapp-menu  bg-color-sidebar-btn ${isActive ? "active" : ""}`}
-                style={{ pointerEvents: "none" }}
               >
                 <Typography variant="h6">
                   <SvgIcon color="primary" component={StakeIcon} />
                   Stake
-                  <Typography variant="caption" style={{ marginLeft: "8px" }}>
-                    (Coming Soon)
-                  </Typography>
                 </Typography>
               </Link>
-
-              {/* <Link
-                component={NavLink}
-                id="33-together-nav"
-                to="/33-together"
-                isActive={(match, location) => {
-                  return checkPage(match, location, "33-together");
-                }}
-                className={`button-dapp-menu ${isActive ? "active" : ""}`}
-              >
-                <Typography variant="h6">
-                  <SvgIcon color="primary" component={PoolTogetherIcon} />
-                  3,3 Together
-                </Typography>
-              </Link> */}
 
               <Link
                 component={NavLink}
@@ -152,40 +129,14 @@ function NavContent() {
                   return checkPage(match, location, "bonds");
                 }}
                 className={`button-dapp-menu bg-color-sidebar-btn ${isActive ? "active" : ""}`}
-                style={{ pointerEvents: "none" }}
               >
                 <Typography variant="h6">
                   <SvgIcon color="primary" component={BondIcon} />
                   Bond
-                  <Typography variant="caption" style={{ marginLeft: "8px" }}>
-                    (Coming Soon)
-                  </Typography>
                 </Typography>
               </Link>
 
-              {/* <div className="dapp-menu-data discounts">
-                <div className="bond-discounts">
-                  <Typography variant="body2">Bond discounts</Typography>
-                  {bonds.map((bond, i) => (
-                    <Link component={NavLink} to={`/bonds/${bond.name}`} key={i} className={"bond"}>
-                      {!bond.bondDiscount ? (
-                        <Skeleton variant="text" width={"150px"} />
-                      ) : (
-                        <Typography variant="body2">
-                          {bond.displayName}
-                          <span className="bond-pair-roi">
-                            {bond.isSoldOut ? (
-                              "Sold Out"
-                            ) : (
-                              <>{bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%</>
-                            )}
-                          </span>
-                        </Typography>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-              </div> */}
+        
             </div>
           </div>
         </div>

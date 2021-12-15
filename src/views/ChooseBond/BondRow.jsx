@@ -10,7 +10,7 @@ import useBonds from "src/hooks/Bonds";
 export function BondDataCard({ bond }) {
   const { loading } = useBonds();
   const isBondLoading = !bond.bondPrice ?? true;
-
+  
   return (
     <Slide direction="up" in={true}>
       <Paper id={`${bond.name}--bond`} className="bond-data-card ohm-card">

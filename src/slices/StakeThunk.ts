@@ -1,7 +1,7 @@
 import { ethers, BigNumber } from "ethers";
 import { addresses } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
-import { abi as BigHeadStaking } from "../abi/BigHeadStaking.json";
+import { abi as ValdaoStaking } from "../abi/ValdaoStaking.json";
 import { abi as StakingHelper } from "../abi/StakingHelper.json";
 import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./PendingTxnsSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -24,9 +24,9 @@ function alreadyApprovedToken(token: string, stakeAllowance: BigNumber, unstakeA
   let applicableAllowance = bigZero;
 
   // determine which allowance to check
-  if (token === "bhd") {
+  if (token === "valdao") {
     applicableAllowance = stakeAllowance;
-  } else if (token === "sbhd") {
+  } else if (token === "svaldao") {
     applicableAllowance = unstakeAllowance;
   }
 
@@ -43,13 +43,13 @@ export const changeApproval = createAsyncThunk(
       dispatch(error("Please connect your wallet!"));
       return;
     }
-
+    console.log('debug->token',token);
     const signer = provider.getSigner();
-    const bhdContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, signer);
-    const sbhdContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, ierc20Abi, signer);
+    const valdaoContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, signer);
+    const svaldaoContract = new ethers.Contract(addresses[networkID].SVALDAO_ADDRESS as string, ierc20Abi, signer);
     let approveTx;
-    let stakeAllowance = await bhdContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
-    let unstakeAllowance = await sbhdContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    let stakeAllowance = await valdaoContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
+    let unstakeAllowance = await svaldaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
 
     // return early if approval has already happened
     if (alreadyApprovedToken(token, stakeAllowance, unstakeAllowance)) {
@@ -57,29 +57,29 @@ export const changeApproval = createAsyncThunk(
       return dispatch(
         fetchAccountSuccess({
           staking: {
-            bhdStake: +stakeAllowance,
-            bhdUnstake: +unstakeAllowance,
+            valdaoStake: +stakeAllowance,
+            valdaoUnstake: +unstakeAllowance,
           },
         }),
       );
     }
 
     try {
-      if (token === "bhd") {
+      if (token === "valdao") {
         // won't run if stakeAllowance > 0
-        approveTx = await bhdContract.approve(
+        approveTx = await valdaoContract.approve(
           addresses[networkID].STAKING_HELPER_ADDRESS,
           ethers.utils.parseUnits("1000000000", "gwei").toString(),
         );
-      } else if (token === "sbhd") {
-        approveTx = await sbhdContract.approve(
+      } else if (token === "svaldao") {
+        approveTx = await svaldaoContract.approve(
           addresses[networkID].STAKING_ADDRESS,
           ethers.utils.parseUnits("1000000000", "gwei").toString(),
         );
       }
 
-      const text = "Approve " + (token === "bhd" ? "Staking" : "Unstaking");
-      const pendingTxnType = token === "bhd" ? "approve_staking" : "approve_unstaking";
+      const text = "Approve " + (token === "valdao" ? "Staking" : "Unstaking");
+      const pendingTxnType = token === "valdao" ? "approve_staking" : "approve_unstaking";
       dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
 
       await approveTx.wait();
@@ -93,8 +93,8 @@ export const changeApproval = createAsyncThunk(
     }
 
     // go get fresh allowances
-    stakeAllowance = await bhdContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
-    unstakeAllowance = await sbhdContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    stakeAllowance = await valdaoContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
+    unstakeAllowance = await svaldaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
 
     return dispatch(
       fetchAccountSuccess({
@@ -117,7 +117,7 @@ export const changeStake = createAsyncThunk(
 
     const signer = provider.getSigner();
     let staking, stakingHelper;
-    staking = new ethers.Contract(addresses[networkID].STAKING_ADDRESS as string, BigHeadStaking, signer);
+    staking = new ethers.Contract(addresses[networkID].STAKING_ADDRESS as string, ValdaoStaking, signer);
     stakingHelper = new ethers.Contract(addresses[networkID].STAKING_HELPER_ADDRESS as string, StakingHelper, signer);
 
     let stakeTx;
@@ -132,7 +132,8 @@ export const changeStake = createAsyncThunk(
     try {
       if (action === "stake") {
         uaData.type = "stake";
-        stakeTx = await stakingHelper.stake(ethers.utils.parseUnits(value, "gwei"));
+        console.log('debug->chaingeStake', value, stakingHelper, address)
+        stakeTx = await stakingHelper.stake(ethers.utils.parseUnits(value, "gwei"), address);
       } else {
         uaData.type = "unstake";
         stakeTx = await staking.unstake(ethers.utils.parseUnits(value, "gwei"), true);

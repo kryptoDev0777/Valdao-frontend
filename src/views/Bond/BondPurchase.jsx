@@ -26,8 +26,8 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
   const [quantity, setQuantity] = useState("");
   const [secondsToRefresh, setSecondsToRefresh] = useState(SECONDS_TO_REFRESH);
 
-  const currentBlock = useSelector(state => {
-    return state.app.currentBlock;
+  const currentTime = useSelector(state => {
+    return state.app.currentTime;
   });
   const isSoldOut = bond.isSoldOut;
 
@@ -38,9 +38,10 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
   });
 
   const vestingPeriod = () => {
-    const vestingBlock = parseInt(currentBlock) + parseInt(bond.vestingTerm);
-    const seconds = secondsUntilBlock(currentBlock, vestingBlock);
-    return prettifySeconds(seconds, "day");
+    const vestingTime = parseInt(currentTime) + parseInt(bond.vestingTerm);
+    const seconds = secondsUntilBlock(currentTime, vestingTime);
+    // const seconds = 
+    return prettifySeconds(bond.vestingTerm, "day");
   };
 
   async function onBond() {
@@ -226,9 +227,9 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
             <Typography>You Will Get</Typography>
             <Typography id="bond-value-id" className="price-data">
               {isSoldOut ? (
-                "0 BHD"
+                "0 VALDAO"
               ) : (
-                <>{isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondQuote, 4) || "0"} BHD`}</>
+                <>{isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondQuote, 4) || "0"} VALDAO`}</>
               )}
             </Typography>
           </div>
@@ -236,7 +237,7 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
           <div className={`data-row`}>
             <Typography>Max You Can Buy</Typography>
             <Typography id="bond-value-id" className="price-data">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4) || "0"} BHD`}
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4) || "0"} VALDAO`}
             </Typography>
           </div>
 
@@ -246,7 +247,7 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
               {isSoldOut ? (
                 "--"
               ) : (
-                <>{isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondDiscount, 4) || "0"} BHD`}</>
+                <>{isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondDiscount, 4) || "0"} VALDAO`}</>
               )}
             </Typography>
           </div>

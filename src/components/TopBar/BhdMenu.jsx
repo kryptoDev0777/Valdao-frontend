@@ -10,7 +10,7 @@ import { ReactComponent as bhdTokenImg } from "../../assets/tokens/token_BHD.svg
 import { ReactComponent as t33TokenImg } from "../../assets/tokens/token_33T.svg";
 
 import "./ohmmenu.scss";
-import { dai } from "src/helpers/AllBonds";
+import { mim } from "src/helpers/AllBonds";
 import { useWeb3Context } from "../../hooks/web3Context";
 
 import BhdImg from "src/assets/tokens/token_BHD.svg";
@@ -73,7 +73,7 @@ function BhdMenu() {
 
   const open = Boolean(anchorEl);
   const id = "ohm-popper";
-  const daiAddress = dai.getAddressForReserve(networkID);
+  const mimAddress = mim.getAddressForReserve(networkID);
   return (
     <Box
       component="div"
@@ -93,7 +93,7 @@ function BhdMenu() {
               <Paper className="ohm-menu" elevation={1}>
                 <Box component="div" className="buy-tokens">
                   <Link
-                    href={`https://pancakeswap.finance/swap?inputCurrency=${daiAddress}&outputCurrency=${VALDAO_ADDRESS}`}
+                    href={`https://pancakeswap.finance/swap?inputCurrency=${mimAddress}&outputCurrency=${VALDAO_ADDRESS}`}
                     target="_blank"
                     rel="noreferrer"
                   >

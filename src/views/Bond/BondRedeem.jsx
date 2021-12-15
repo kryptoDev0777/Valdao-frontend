@@ -14,8 +14,8 @@ function BondRedeem({ bond }) {
 
   const isBondLoading = useSelector(state => state.bonding.loading ?? true);
 
-  const currentBlock = useSelector(state => {
-    return state.app.currentBlock;
+  const currentTime = useSelector(state => {
+    return state.app.currentTime;
   });
   const pendingTransactions = useSelector(state => {
     return state.pendingTransactions;
@@ -32,12 +32,12 @@ function BondRedeem({ bond }) {
   }
 
   const vestingTime = () => {
-    return prettyVestingPeriod(currentBlock, bond.bondMaturationBlock);
+    return prettyVestingPeriod(currentTime, bond.bondMaturationTime);
   };
 
   const vestingPeriod = () => {
-    const vestingBlock = parseInt(currentBlock) + parseInt(bondingState.vestingTerm);
-    const seconds = secondsUntilBlock(currentBlock, vestingBlock);
+    const vestingBlock = parseInt(currentTime) + parseInt(bondingState.vestingTerm);
+    const seconds = secondsUntilBlock(currentTime, vestingBlock);
     return prettifySeconds(seconds, "day");
   };
 
@@ -85,13 +85,13 @@ function BondRedeem({ bond }) {
           <div className="data-row">
             <Typography>Pending Rewards</Typography>
             <Typography className="price-data">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.interestDue, 4)} BHD`}
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.interestDue, 4)} VALDAO`}
             </Typography>
           </div>
           <div className="data-row">
             <Typography>Claimable Rewards</Typography>
             <Typography className="price-data">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.pendingPayout, 4)} BHD`}
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.pendingPayout, 4)} VALDAO`}
             </Typography>
           </div>
           <div className="data-row">

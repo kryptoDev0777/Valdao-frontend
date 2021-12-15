@@ -18,6 +18,7 @@ function a11yProps(index) {
 }
 
 function Bond({ bond }) {
+  console.log('debug->bond', bond)
   const dispatch = useDispatch();
   const { provider, address, chainID } = useWeb3Context();
 
@@ -44,7 +45,7 @@ function Bond({ bond }) {
   const changeView = (event, newView) => {
     setView(newView);
   };
-
+  
   const isSoldOut = bond.isSoldOut;
   return (
     <Fade in={true} mountOnEnter unmountOnExit>

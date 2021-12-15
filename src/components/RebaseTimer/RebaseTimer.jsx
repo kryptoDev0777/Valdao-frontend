@@ -16,31 +16,32 @@ function RebaseTimer() {
   const [rebaseString, setRebaseString] = useState("");
   const [secondsToRefresh, setSecondsToRefresh] = useState(SECONDS_TO_REFRESH);
 
-  const currentBlock = useSelector(state => {
-    return state.app.currentBlock;
+  const currentTime = useSelector(state => {
+    return state.app.currentTime;
   });
 
-  const endBlock = useSelector(state => {
-    return state.app.endBlock;
+  const endTime = useSelector(state => {
+    return state.app.endTime;
   });
 
   function initializeTimer() {
-    const rebaseBlock = endBlock;
-    const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
+    const rebaseTime = endTime;
+    const seconds = secondsUntilBlock(currentTime, rebaseTime);
+    // const seconds = currentTime - rebaseTime;
     setSecondsToRebase(seconds);
     const prettified = prettifySeconds(seconds);
     setRebaseString(prettified !== "" ? prettified : "Less than a minute");
   }
 
-  // This initializes secondsToRebase as soon as currentBlock becomes available
+  // This initializes secondsToRebase as soon as currentTime becomes available
   useMemo(() => {
-    if (currentBlock) {
+    if (currentTime) {
       initializeTimer();
     }
-  }, [currentBlock]);
+  }, [currentTime]);
 
   // After every period SECONDS_TO_REFRESH, decrement secondsToRebase by SECONDS_TO_REFRESH,
-  // keeping the display up to date without requiring an on chain request to update currentBlock.
+  // keeping the display up to date without requiring an on chain request to update currentTime.
   useEffect(() => {
     let interval = null;
     if (secondsToRefresh > 0) {
@@ -69,7 +70,7 @@ function RebaseTimer() {
   return (
     <Box className="rebase-timer">
       <Typography variant="body2">
-        {currentBlock ? (
+        {currentTime ? (
           secondsToRebase > 0 ? (
             <>
               <strong>{rebaseString}</strong> to next rebase

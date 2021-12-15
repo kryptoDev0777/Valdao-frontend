@@ -12,7 +12,7 @@ function BondLogo({ bond }) {
 
   return (
     <Box display="flex" alignItems="center" justifyContent="center" width={"64px"}>
-      <SvgIcon component={bond.bondIconSvg} viewBox={viewBox} style={style} />
+      <img src = {bond.bondIconSvg}  style={style} />
     </Box>
   );
 }

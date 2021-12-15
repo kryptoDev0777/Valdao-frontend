@@ -418,7 +418,7 @@
  fill: #fff;
 }
 .app.dark .stake-wallet-notification .wallet-menu .connect-button:hover {
-	background: #044cac;
+	background: #d7c498;
 }
 
 .MuiPaper-root {
@@ -448,7 +448,7 @@
 }
 
 .app.dark .MuiButton-outlinedPrimary:hover {
-	background: #044cac;
+	background: #202025;
 	border: 1px solid rgba(255, 153, 0,
 				1);
 }

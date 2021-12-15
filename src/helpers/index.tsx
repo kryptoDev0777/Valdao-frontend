@@ -8,14 +8,14 @@ import { SvgIcon } from "@material-ui/core";
 import { ReactComponent as BhdImg } from "../assets/tokens/token_BHD.svg";
 import { ReactComponent as SBhdImg } from "../assets/tokens/token_sBHD.svg";
 
-import { bhd_dai } from "./AllBonds";
+import { MIM_Valdao } from "./AllBonds";
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { IBaseAsyncThunk } from "src/slices/interfaces";
 
 // NOTE (appleseed): this looks like an outdated method... we now have this data in the graph (used elsewhere in the app)
 export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
-  const bhd_dai_address = bhd_dai.getAddressForReserve(networkID);
-  const pairContract = new ethers.Contract(bhd_dai_address, PairContract, provider);
+  const MIM_Valdao_address = MIM_Valdao.getAddressForReserve(networkID);
+  const pairContract = new ethers.Contract(MIM_Valdao_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
   const marketPrice = reserves[1] / reserves[0];
 
@@ -59,8 +59,8 @@ export function getRebaseBlock(currentBlock: number) {
   return currentBlock + EPOCH_INTERVAL - (currentBlock % EPOCH_INTERVAL);
 }
 
-export function secondsUntilBlock(startBlock: number, endBlock: number) {
-  const blocksAway = endBlock - startBlock;
+export function secondsUntilBlock(startTime: number, endTime: number) {
+  const blocksAway = endTime - startTime;
   const secondsAway = blocksAway * BLOCK_RATE_SECONDS;
   return secondsAway;
 }
@@ -113,8 +113,8 @@ export function getBhdTokenImage(w?: number, h?: number) {
 }
 
 export function getTokenImage(name: string) {
-  if (name === "bhd") return getBhdTokenImage();
-  if (name === "sbhd") return getSbhdTokenImage();
+  if (name === "valdao") return getBhdTokenImage();
+  if (name === "svaldao") return getSbhdTokenImage();
 }
 
 // TS-REFACTOR-NOTE - Used for:

@@ -153,7 +153,7 @@ function TreasuryDashboard() {
                 </Typography>
               </Box>
 
-              <Box className="metric bpo">
+              <Box className="metric bpo" style={{"width":"40%", "margin-left":"9%"}}>
                 <Typography variant="h6" color="textSecondary">
                   Backing per VALDAO
                 </Typography>
@@ -162,7 +162,7 @@ function TreasuryDashboard() {
                 </Typography>
               </Box>
 
-              <Box className="metric index">
+              <Box className="metric index" style={{"width":"40%", "margin-right":"9%"}}>
                 <Typography variant="h6" color="textSecondary">
                   Current Index
                   <InfoTooltip
@@ -175,7 +175,7 @@ function TreasuryDashboard() {
                   {currentIndex ? trim(currentIndex, 2) + " sVALDAO" : <Skeleton type="text" />}
                 </Typography>
               </Box>
-              <Box className="metric runway">
+              {/* <Box className="metric">
                 <Typography variant="h6" color="textSecondary">
                   Runway
                   <InfoTooltip
@@ -187,7 +187,7 @@ function TreasuryDashboard() {
                 <Typography variant="h5">
                   {runwayValue ? trim(runwayValue, 0) + " days" : <Skeleton type="text" />}
                 </Typography>
-              </Box>
+              </Box> */}
             </Box>
           </Paper>
         </Box>
