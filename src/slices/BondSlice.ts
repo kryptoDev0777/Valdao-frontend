@@ -92,12 +92,15 @@ export const calcBondDetails = createAsyncThunk(
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = (await bondContract.standardizedDebtRatio()) / Math.pow(10, 9);
     const totalDebt = await bondContract.totalDebt();
+
     const maxDebt = terms.maxDebt;
+    console.log('maxDebt',bond.name,   maxDebt.toString())
+    console.log('totalDebt',bond.name,  totalDebt.toString())
     let isSoldOut = false;
     if (Number(totalDebt) >= Number(maxDebt)) {
       isSoldOut = true;
     }
-
+    console.log('totalDebt', bond.name, isSoldOut)
  
     let marketPrice: number = 0;
     try {

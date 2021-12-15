@@ -155,7 +155,7 @@ const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({ network
   try {
     marketPrice = await getMarketPrice({ networkID, provider });
      marketPrice = marketPrice / Math.pow(10, 9);
-    
+    console.log('marketPrice',marketPrice);
   } catch (e) {
     marketPrice = 80;
   }

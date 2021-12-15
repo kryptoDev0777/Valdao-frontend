@@ -17,7 +17,7 @@ export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
   const MIM_Valdao_address = MIM_Valdao.getAddressForReserve(networkID);
   const pairContract = new ethers.Contract(MIM_Valdao_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
-  const marketPrice = reserves[1] / reserves[0];
+  const marketPrice = reserves[0] / reserves[1];
 
   // commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
   return marketPrice;
