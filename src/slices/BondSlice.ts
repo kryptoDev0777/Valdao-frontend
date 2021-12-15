@@ -167,7 +167,7 @@ export const calcBondDetails = createAsyncThunk(
       bondDiscount = -0.1;
     }
 
-    console.log('debug->bondPRice', bondPrice, purchased)
+    console.log('debug->purchased', purchased)
     return {
       bond: bond.name,
       bondDiscount,

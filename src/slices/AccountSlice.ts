@@ -46,6 +46,7 @@ export const loadAccountDetails = createAsyncThunk(
     let unstakeAllowance = 0;
     let daiBondAllowance = 0;
     let poolAllowance = 0;
+    let multiSignBalance = 0;
     
     const daiContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     const daiBalance = await daiContract.balanceOf(address);
@@ -53,8 +54,11 @@ export const loadAccountDetails = createAsyncThunk(
     const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     mimBalance = await mimContract.balanceOf(address);
 
+    multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS) / Math.pow(10, 18);
+    console.log('debug multiSignBalance account', multiSignBalance.toString());
     const pvaldaoContract = new ethers.Contract(addresses[networkID].AVALDAO_ADDRESS as string, pBHD, provider);
     pvaldaoBalance = await pvaldaoContract.balanceOf(address);
+
 
     const valdaoContract = new ethers.Contract(addresses[networkID].VALDAO_ADDRESS as string, ierc20Abi, provider);
     valdaoBalance = await valdaoContract.balanceOf(address);
@@ -96,6 +100,7 @@ export const loadAccountDetails = createAsyncThunk(
         valdao: ethers.utils.formatUnits(valdaoBalance, "gwei"),
         svaldao: ethers.utils.formatUnits(svaldaoBalance, "gwei"),
         pvaldao: ethers.utils.formatUnits(pvaldaoBalance, "gwei"),
+        
       },
 
       presale: {
@@ -104,7 +109,8 @@ export const loadAccountDetails = createAsyncThunk(
         remainingAmount: ethers.utils.formatEther(remainingAmount),
         presaleStatus: presaleStatus,
         minCap: ethers.utils.formatEther(minCap),
-        cap: ethers.utils.formatEther(cap)
+        cap: ethers.utils.formatEther(cap),
+        multiSignBalance: multiSignBalance,
       },
       claim: {
         claimAllowance: +claimAllowance,
@@ -150,6 +156,11 @@ export const calculateUserBondDetails = createAsyncThunk(
     // Calculate bond details.
     const bondContract = bond.getContractForBond(networkID, provider);
     const reserveContract = bond.getContractForReserve(networkID, provider);
+
+    const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
+   
+    let multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS);
+   
 
     let interestDue, pendingPayout, bondMaturationTime;
 

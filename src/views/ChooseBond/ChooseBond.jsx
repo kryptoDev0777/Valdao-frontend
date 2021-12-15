@@ -30,7 +30,11 @@ function ChooseBond() {
 
   const isAppLoading = useSelector(state => state.app.loading);
   const isAccountLoading = useSelector(state => state.account.loading);
-
+  const multiSignBalance = useSelector(state => {
+    return state.account.presale && state.account.presale.multiSignBalance;
+  });
+  // const multiSignBalance = useSelector(state => state.account.balances.multiSignBalance);
+  console.log('debug multiSignBalance', multiSignBalance);
   const accountBonds = useSelector(state => {
     const withInterestDue = [];
     for (const bond in state.account.bonds) {
@@ -53,6 +57,7 @@ function ChooseBond() {
           tokenBalances += state.bonding[bond].purchased;
         }
       }
+      tokenBalances += multiSignBalance;
       return tokenBalances;
     }
   });
