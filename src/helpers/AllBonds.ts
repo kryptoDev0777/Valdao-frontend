@@ -124,7 +124,7 @@ export const MIM_Valdao = new LPBond({
     },
   },
   lpUrl:
-    "https://www.traderjoexyz.com/#/add/0x1ec483fBB9eE42aED753F633DF23A171AAD4De7b/0x84506992349429DaC867B2168843FfcA263af6E8",
+    "https://traderjoexyz.com/#/pool/0x84506992349429DaC867B2168843FfcA263af6E8/0x130966628846BFd36ff31a822705796e8cb8C18D",
 });
 
 // HOW TO ADD A NEW BOND:
