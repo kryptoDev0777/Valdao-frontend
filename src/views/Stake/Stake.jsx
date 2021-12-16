@@ -224,7 +224,8 @@ function Stake() {
                           APY
                         </Typography>
                         <Typography variant="h4">
-                          {stakingAPY ? <>{trimmedStakingAPY}%</> : <Skeleton width="150px" />}
+                        
+                          {stakingAPY ? (new Intl.NumberFormat().format(Math.floor(trimmedStakingAPY))+'%') : <Skeleton width="150px" />}
                         </Typography>
                       </div>
                     </Grid>
