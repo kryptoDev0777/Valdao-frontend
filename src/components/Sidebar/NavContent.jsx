@@ -60,7 +60,7 @@ function NavContent() {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav " id="navbarNav" style={{"width":"-webkit-fill-available", "margin-right":"20px"}}>
-              <Link
+              {/* <Link
                 component={NavLink}
                 id="dash-nav"
                 to="/presale"
@@ -74,7 +74,7 @@ function NavContent() {
                   <SvgIcon color="primary" component={PresaleIcon} />
                   Presale
                 </Typography>
-              </Link>
+              </Link> */}
 
               <Link
                 component={NavLink}

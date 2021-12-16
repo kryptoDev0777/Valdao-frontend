@@ -18,11 +18,7 @@ const externalUrls = [
   //   url: "https://vote.app.hectordao.com/",
   //   icon: <SvgIcon color="primary" component={GovIcon} />,
   // },
-  // {
-  //   title: "Buy on PancakeSwap",
-  //   url: "https://pancakeswap.finance/swap?inputCurrency=0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3&outputCurrency=0x7D8461077e7D774a12F407124Af3c7CC06AD3Cbb",
-  //   icon: <SvgIcon viewBox="0 0 64 64" color="primary" component={SpookySwapIcon} />,
-  // },
+  
   // {
   //   title: "Buy on AthenSwap",
   //   url: "https://swap.athen.com/swap?inputCurrency=0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3&outputCurrency=0x7D8461077e7D774a12F407124Af3c7CC06AD3Cbb",
@@ -52,6 +48,11 @@ const externalUrls = [
     title: "Docs",
     label: "(Coming soon)",
     icon: <SvgIcon color="primary" component={DocsIcon} />,
+  },
+  {
+    title: "Buy on Trader Joe",
+    url: "https://traderjoexyz.com/#/trade?inputCurrency=&outputCurrency=0x84506992349429DaC867B2168843FfcA263af6E8",
+    icon: <img src="/images/traderjoe.png" style={{"width":"24px"}} />,
   },
   // {
   //   title: "Feedback",

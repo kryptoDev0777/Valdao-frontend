@@ -250,9 +250,9 @@ function App() {
 
         <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
           <Switch>
-            <Route exact path="/presale">
+            {/* <Route exact path="/presale">
               <Presale />
-            </Route>
+            </Route> */}
 
             <Route exact path="/claim">
               <Claim />
@@ -263,7 +263,7 @@ function App() {
             </Route>
 
             <Route exact path="/">
-              <Redirect to="/presale" />
+              <Redirect to="/dashboard" />
             </Route>
 
             <Route path="/stake">

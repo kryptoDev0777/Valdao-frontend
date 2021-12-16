@@ -57,7 +57,7 @@ function ChooseBond() {
           tokenBalances += state.bonding[bond].purchased;
         }
       }
-      tokenBalances += multiSignBalance;
+      // tokenBalances += multiSignBalance;
       return tokenBalances;
     }
   });
