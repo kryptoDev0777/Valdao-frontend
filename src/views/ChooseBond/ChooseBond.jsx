@@ -30,11 +30,11 @@ function ChooseBond() {
 
   const isAppLoading = useSelector(state => state.app.loading);
   const isAccountLoading = useSelector(state => state.account.loading);
-  const multiSignBalance = useSelector(state => {
-    return state.account.presale && state.account.presale.multiSignBalance;
-  });
+  // const multiSignBalance = useSelector(state => {
+  //   return state.bond.multiSignBalance;
+  // });
   // const multiSignBalance = useSelector(state => state.account.balances.multiSignBalance);
-  console.log('debug multiSignBalance', multiSignBalance);
+  // console.log('debug multiSignBalance', multiSignBalance);
   const accountBonds = useSelector(state => {
     const withInterestDue = [];
     for (const bond in state.account.bonds) {
@@ -50,14 +50,21 @@ function ChooseBond() {
   });
 
   const treasuryBalance = useSelector(state => {
-    if (state.bonding.loading == false) {
+    if (state.bonding.loading == false ) {
       let tokenBalances = 0;
+      let i = 0;
       for (const bond in allBondsMap) {
+
         if (state.bonding[bond]) {
           tokenBalances += state.bonding[bond].purchased;
         }
+        if(i == 0){
+          tokenBalances += state.bonding[bond].multiSignBalance;
+        }
+        i++;
       }
-      tokenBalances += multiSignBalance;
+      
+      
       return tokenBalances;
     }
   });

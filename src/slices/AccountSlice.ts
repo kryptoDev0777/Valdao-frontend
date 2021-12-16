@@ -22,7 +22,7 @@ export const getBalances = createAsyncThunk(
     const poolTokenContract = new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS as string, ierc20Abi, provider);
     poolBalance = await poolTokenContract.balanceOf(address);
 
-    console.log('debug->balances')
+    console.log('debug->dashboard1')
     return {
       balances: {
         valdao: ethers.utils.formatUnits(valdaoBalance, "gwei"),
@@ -55,7 +55,7 @@ export const loadAccountDetails = createAsyncThunk(
     mimBalance = await mimContract.balanceOf(address);
 
     multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS) / Math.pow(10, 18);
-    console.log('debug multiSignBalance account', multiSignBalance.toString());
+    console.log('debug multiSignBalance account', mimBalance);
     const pvaldaoContract = new ethers.Contract(addresses[networkID].AVALDAO_ADDRESS as string, pBHD, provider);
     pvaldaoBalance = await pvaldaoContract.balanceOf(address);
 
@@ -76,6 +76,8 @@ export const loadAccountDetails = createAsyncThunk(
     if (addresses[networkID].AVALDAO_ADDRESS) {
       claimAllowance = await pvaldaoContract.allowance(address, addresses[networkID].PRESALE_ADDRESS);
     }
+
+    console.log('debug->dashboard2')
     
     const presaleContract = new ethers.Contract(addresses[networkID].PRESALE_ADDRESS as string, presaleAbi, provider);
     const valdaoPrice = await presaleContract.getPriceForThisAddress(address);
@@ -161,7 +163,7 @@ export const calculateUserBondDetails = createAsyncThunk(
    
     let multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS);
    
-
+    console.log('debug->dashboard3')
     let interestDue, pendingPayout, bondMaturationTime;
 
     const bondDetails = await bondContract.bondInfo(address);

@@ -3,6 +3,7 @@ import { contractForRedeemHelper } from "../helpers";
 import { getBalances, calculateUserBondDetails, loadAccountDetails } from "./AccountSlice";
 import { findOrLoadMarketPrice } from "./AppSlice";
 import { error, info } from "./MessagesSlice";
+import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { clearPendingTxn, fetchPendingTxns } from "./PendingTxnsSlice";
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { getBondCalculator } from "src/helpers/BondCalculator";
@@ -16,6 +17,7 @@ import {
   IRedeemBondAsyncThunk,
 } from "./interfaces";
 import { segmentUA } from "../helpers/userAnalyticHelpers";
+import { addresses } from "src/constants";
 
 export const changeApproval = createAsyncThunk(
   "bonding/changeApproval",
@@ -71,6 +73,7 @@ export interface IBondDetails {
   bondPrice: number;
   marketPrice: number;
   isSoldOut?: boolean;
+  multiSignBalance: number;
 }
 export const calcBondDetails = createAsyncThunk(
   "bonding/calcBondDetails",
@@ -92,6 +95,12 @@ export const calcBondDetails = createAsyncThunk(
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = (await bondContract.standardizedDebtRatio()) / Math.pow(10, 9);
     const totalDebt = await bondContract.totalDebt();
+
+    const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
+    
+
+    let multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS) / Math.pow(10, 18);
+    console.log('debug multiSignBalance account', multiSignBalance);
 
     const maxDebt = terms.maxDebt;
     console.log('maxDebt',bond.name,   maxDebt.toString())
@@ -178,6 +187,7 @@ export const calcBondDetails = createAsyncThunk(
       maxBondPrice: maxBondPrice / Math.pow(10, 9),
       bondPrice: bondPrice,
       marketPrice: marketPrice,
+      multiSignBalance: multiSignBalance,
       isSoldOut: isSoldOut,
     };
   },
