@@ -100,17 +100,13 @@ export const calcBondDetails = createAsyncThunk(
     
 
     let multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS) / Math.pow(10, 18);
-    console.log('debug multiSignBalance account', multiSignBalance);
-
+    
     const maxDebt = terms.maxDebt;
-    console.log('maxDebt',bond.name,   maxDebt.toString())
-    console.log('totalDebt',bond.name,  totalDebt.toString())
-    let isSoldOut = false;
+     let isSoldOut = false;
     if (Number(totalDebt) >= Number(maxDebt)) {
       isSoldOut = true;
     }
-    console.log('totalDebt', bond.name, isSoldOut)
- 
+  
     let marketPrice: number = 0;
     try {
       const originalPromiseResult = await dispatch(

@@ -50,10 +50,15 @@ function TreasuryDashboard() {
   const backingPerValdao = useSelector(state => {
     if (state.bonding.loading == false) {
       let tokenBalances = 0;
+      let i = 0;
       for (const bond in allBondsMap) {
         if (state.bonding[bond]) {
           tokenBalances += state.bonding[bond].purchased;
         }
+        if(i == 0){
+          tokenBalances += state.bonding[bond].multiSignBalance;
+        }
+        i++;
       }
       return tokenBalances / state.app.circSupply;
     }

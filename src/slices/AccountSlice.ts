@@ -46,7 +46,6 @@ export const loadAccountDetails = createAsyncThunk(
     let unstakeAllowance = 0;
     let daiBondAllowance = 0;
     let poolAllowance = 0;
-    let multiSignBalance = 0;
     
     const daiContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     const daiBalance = await daiContract.balanceOf(address);
@@ -54,8 +53,6 @@ export const loadAccountDetails = createAsyncThunk(
     const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
     mimBalance = await mimContract.balanceOf(address);
 
-    multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS) / Math.pow(10, 18);
-    console.log('debug multiSignBalance account', mimBalance);
     const pvaldaoContract = new ethers.Contract(addresses[networkID].AVALDAO_ADDRESS as string, pBHD, provider);
     pvaldaoBalance = await pvaldaoContract.balanceOf(address);
 
@@ -112,7 +109,6 @@ export const loadAccountDetails = createAsyncThunk(
         presaleStatus: presaleStatus,
         minCap: ethers.utils.formatEther(minCap),
         cap: ethers.utils.formatEther(cap),
-        multiSignBalance: multiSignBalance,
       },
       claim: {
         claimAllowance: +claimAllowance,
@@ -161,7 +157,6 @@ export const calculateUserBondDetails = createAsyncThunk(
 
     const mimContract = new ethers.Contract(addresses[networkID].MIM_ADDRESS as string, ierc20Abi, provider);
    
-    let multiSignBalance = await mimContract.balanceOf(addresses[networkID].MULTISIGN_ADDRESS);
    
     console.log('debug->dashboard3')
     let interestDue, pendingPayout, bondMaturationTime;
