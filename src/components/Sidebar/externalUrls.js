@@ -54,6 +54,11 @@ const externalUrls = [
     url: "https://traderjoexyz.com/#/trade?inputCurrency=&outputCurrency=0x84506992349429DaC867B2168843FfcA263af6E8",
     icon: <img src="/images/traderjoe.png" style={{"width":"24px"}} />,
   },
+  {
+    title: "Chart",
+    url: "https://dexscreener.com/avalanche/0x84506992349429DaC867B2168843FfcA263af6E8",
+    // icon: <img src="/images/traderjoe.png" style={{"width":"24px"}} />,
+  },
   // {
   //   title: "Feedback",
   //   url: "https://olympusdao.canny.io/",

@@ -47,7 +47,7 @@ function TreasuryDashboard() {
   const runwayValue = useSelector(state => {
     return state.app.runway;
   });
-  const backingPerBhd = useSelector(state => {
+  const backingPerValdao = useSelector(state => {
     if (state.bonding.loading == false) {
       let tokenBalances = 0;
       for (const bond in allBondsMap) {
@@ -158,7 +158,7 @@ function TreasuryDashboard() {
                   Backing per VALDAO
                 </Typography>
                 <Typography variant="h5">
-                  {backingPerBhd ? formatCurrency(backingPerBhd, 2) : <Skeleton type="text" />}
+                  {backingPerValdao ? formatCurrency(backingPerValdao, 2) : <Skeleton type="text" />}
                 </Typography>
               </Box>
 

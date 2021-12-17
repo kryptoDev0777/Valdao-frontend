@@ -27,8 +27,8 @@ console.log('debug->allbonds', NetworkID.Mainnet);
 //   bondContractABI: DaiBondContract,
 //   networkAddrs: {
 //     [NetworkID.Mainnet]: {
-//       bondAddress: "0x39D260B96089F2a34DBc5186B47D4278392f55Ce",
-//       reserveAddress: "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
+//       bondAddress: "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+//       reserveAddress: "0x1876A25338aBbB9AeAFc3b68f552f11F52661E89",
 //     },
 //     [NetworkID.Testnet]: {
 //       bondAddress: "0x7b10a32d15FE1196a7f1590a855AC4ACcB6fe772",
